@@ -7,18 +7,20 @@ class ContaCorrente {
     agencia;
     _saldo = 0;
 
-    sacar(valor){
-        if (this._saldo >= valor){
+    sacar(valor) {
+        if (this._saldo >= valor) {
             this._saldo -= valor;
-            console.log("valor total apos saque: "+this._saldo);
+            return valor;
         }
     }
 
-    depositar(valor){
-        if(valor > 0){
-            this._saldo += valor;
-            console.log("valor valor total apos deposito: "+this._saldo);
-        }
+    depositar(valor) {
+        if (valor <= 0)  return;
+/*         if (valor <= 0) {
+            return;
+        } */
+        this._saldo += valor;
+
     }
 }
 
@@ -41,6 +43,8 @@ contaCorrenteRicardo.agencia = 1001;
 contaCorrenteRicardo.depositar(100);
 contaCorrenteRicardo.depositar(100);
 contaCorrenteRicardo.depositar(100);
-contaCorrenteRicardo.sacar(50);
+
+const valorSacado = contaCorrenteRicardo.sacar(50);
+console.log(valorSacado);
 
 console.log(contaCorrenteRicardo);
